@@ -1,12 +1,12 @@
 "pedobear"
 {
 	"base"		"base"
-	"title"		"Escape Pedobear"
+	"title"		"Escape Pedobear 1"
 	"maps"		"^pb_"
 	"menusystem"	"1"
 
 	"settings"
 	{
-		// Eh , I'll put something here later.lel.
+		// Still nothing here. Soz.
 	}
 }
