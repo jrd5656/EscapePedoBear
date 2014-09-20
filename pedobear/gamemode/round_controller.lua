@@ -16,15 +16,12 @@ end
 
 function GM:OnRoundResult( result, resulttext )
 
-	// The fact that result might not be a team 
-	// shouldn't matter when calling this..
+	// The fact that result might not be a team .. shouldn't matter when calling this..
 	team.AddScore( result, 1 )
 
 end
 
 function GM:OnRoundWinner( ply, resulttext )
-
-	// Do whatever you want to do with the winner here (this is only called in Free For All gamemodes)...
 	ply:AddFrags( 1 )
 end
 
@@ -39,7 +36,7 @@ function GM:OnPreRoundStart( num )
 end
 
 function GM:CanStartRound( iNum )
-	if( team.NumPlayers(TEAM_PLAYER) > 1)then
+	if( team.NumPlayers(TEAM_PLAYER) > 0)then
 		return true
 	end
 	return false
@@ -51,12 +48,10 @@ function GM:StartRoundBasedGame()
 	
 end
 
-// Number of rounds
 function GM:GetRoundLimit()
 	return GAMEMODE.RoundLimit;
 end
 
-// Has the round limit been reached?
 function GM:HasReachedRoundLimit( iNum )
 
 	local iRoundLimit = GAMEMODE:GetRoundLimit();
@@ -69,12 +64,10 @@ function GM:HasReachedRoundLimit( iNum )
 	
 end
 
-// This is for the timer-based game end. set this to return true if you want it to end mid-round
 function GM:CanEndRoundBasedGame()
 	return false
 end
 
-// You can add round time by calling this (takes time in seconds)
 function GM:AddRoundTime( iAddedTime )
 	
 	if( !GAMEMODE:InRound() ) then // don't add time if round is not in progress
@@ -234,7 +227,7 @@ function GM:CheckPlayerDeathRoundEnd()
 
 		if ( table.Count( Teams ) == 0 ) then
 		
-			GAMEMODE:RoundEndWithResult( 1001, "Draw, everyone loses!" )
+			GAMEMODE:RoundEndWithResult( 1001, "Draw, everyone loses! Booo!" )
 			return
 			
 		end
