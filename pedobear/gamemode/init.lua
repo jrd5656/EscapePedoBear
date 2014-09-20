@@ -39,7 +39,7 @@ function GM:Think()
 end
 
 function GM:GetRndSpawn()
-        cps = ents.FindByClass("pb_spawn")
+        cps = ents.FindByClass("pb_spawn") or ents.FindByClass("pedo_spawn") or ents.FindByClass("pedobear") or ents.FindByClass("bear")
         return table.Random(cps)
 end
 
@@ -101,9 +101,9 @@ function CheckRoundEnd()
 			end
 		end
 		if(i == 1)then
-			GAMEMODE:RoundEndWithResult(ply, ply:Nick().." has escaped Pedo Bear!")
+			GAMEMODE:RoundEndWithResult(ply, ply:Nick().." has escaped Pedo Bear! Poor bear. :(")
 		end
-		if(i <= 0)then GAMEMODE:RoundEndWithResult( 1001, "Wtf Happened?!" ) end
+		if(i <= 0)then GAMEMODE:RoundEndWithResult( 1001, "Wtf happened!?!?" ) end
 	end
 end
 
