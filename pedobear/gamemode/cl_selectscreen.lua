@@ -2,9 +2,7 @@
 local CENTER_HEIGHT = 250
 local PANEL = {}
 
-/*---------------------------------------------------------
-   Init
----------------------------------------------------------*/
+
 function PANEL:Init()
 
 	self:SetText( "" )
@@ -68,9 +66,7 @@ function PANEL:NoFadeIn()
 	self.OpenTime = 0
 end
 
-/*---------------------------------------------------------
-   AddPanelButton
----------------------------------------------------------*/
+
 function PANEL:AddPanelButton( icon, title, pnlfnc )
 
 	local btn = vgui.Create( "DImageButton", self )
@@ -84,8 +80,7 @@ function PANEL:AddPanelButton( icon, title, pnlfnc )
 	
 	Derma_Hook( btn, "Paint", 				"Paint", 		"PanelButton" )
 	Derma_Hook( btn, "PaintOver",			"PaintOver", 	"PanelButton" )
-	//Derma_Hook( btn, "ApplySchemeSettings", "Scheme", 		"PanelButton" )
-	//Derma_Hook( btn, "PerformLayout", 		"Layout", 		"PanelButton" )
+
 	
 	local fnClick = function()
 		
@@ -132,36 +127,28 @@ function PANEL:ClearSelectedPanel()
 
 end
 
-/*---------------------------------------------------------
-   SetHeaderText
----------------------------------------------------------*/
+
 function PANEL:SetHeaderText( strName )
 
 	self.lblMain:SetText( strName )
 
 end
 
-/*---------------------------------------------------------
-   SetHeaderText
----------------------------------------------------------*/
+
 function PANEL:SetHoverText( strName )
 
 	self.lblHoverText:SetText( strName or "" )
 
 end
 
-/*---------------------------------------------------------
-   SetHeaderText
----------------------------------------------------------*/
+
 function PANEL:GetHoverText( strName )
 
 	return self.lblHoverText:GetValue()
 
 end
 
-/*---------------------------------------------------------
-  AddSelectButton
----------------------------------------------------------*/
+
 function PANEL:AddSelectButton( strName, fnFunction, txt )
 
 	local btn = vgui.Create( "DButton", self.pnlButtons )
@@ -186,9 +173,7 @@ function PANEL:AddSelectButton( strName, fnFunction, txt )
 	
 end
 
-/*---------------------------------------------------------
-   SetHeaderText
----------------------------------------------------------*/
+
 function PANEL:AddSpacer( h )
 
 	local btn = vgui.Create( "Panel", self )
@@ -198,18 +183,14 @@ function PANEL:AddSpacer( h )
 	
 end
 
-/*---------------------------------------------------------
-   SetHeaderText
----------------------------------------------------------*/
+
 function PANEL:AddCancelButton()
 
 	self.btnCancel:SetVisible( true )
 	
 end
 
-/*---------------------------------------------------------
-   PerformLayout
----------------------------------------------------------*/
+
 function PANEL:PerformLayout()
 
 	self:SetSize( ScrW(), ScrH() )
@@ -245,9 +226,7 @@ function PANEL:PerformLayout()
 		
 end
 
-/*---------------------------------------------------------
-   Paint
----------------------------------------------------------*/
+
 function PANEL:Paint()
 
 	Derma_DrawBackgroundBlur( self, self.OpenTime )
@@ -272,7 +251,7 @@ function GM:ShowTeam()
 	if ( !IsValid( TeamPanel ) ) then 
 	
 		TeamPanel = vgui.CreateFromTable( vgui_Splash )
-		TeamPanel:SetHeaderText( "Choose Team" )
+		TeamPanel:SetHeaderText( "Choose a Team:" )
 
 		local AllTeams = team.GetAllTeams()
 		for ID, TeamInfo in SortedPairs ( AllTeams ) do
@@ -300,11 +279,8 @@ function GM:ShowTeam()
 			end
 			
 		end
+		
 		TeamPanel:AddSpacer( 50 )
-		
-		local strName = "Play on Match Head Studios"
-		local func = function() LocalPlayer():ConCommand("connect fretta.matchheadstudios.com:27017") end
-		
 		TeamPanel:AddCancelButton()
 		
 	end
