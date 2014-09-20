@@ -8,7 +8,7 @@ CLASS.RunSpeed				= 200
 CLASS.DuckSpeed				= 0.5
 CLASS.JumpPower				= 300
 CLASS.DrawTeamRing			= true
-CLASS.CanUseFlashlight      = true
+CLASS.CanUseFlashlight      = true // Added this just for Dark maps like my pb_rooms.
 CLASS.MaxHealth				= 50
 CLASS.StartHealth			= 50
 
