@@ -2,9 +2,9 @@ DeriveGamemode( "fretta" )
 IncludePlayerClasses()
 
 GM.Name 	= "Escape Pedo Bear"
-GM.Author 	= "Douglas Huck , Paul Sweeney, [HG] Mr Ibizza and Ysarts"
+GM.Author 	= "Douglas Huck , Paul Sweeney, Jordie and Ysarts"
 GM.Email 	= "jordanjordanovv@gmail.com"
-GM.Website 	= "http://steamcommunity.com/id/mribizza/"
+GM.Website 	= "http://steamcommunity.com/id/jordielsx/"
 GM.Help		= "Objective: Run from Pedo Bear and try to survive the longest so you win!\n If you get caught you will die and lose!\n If you have any problems with the gamemode , ask for help in our addon discussions page"
 
 GM.TeamBased = true	
@@ -17,11 +17,11 @@ GM.VotingDelay = 5					// Delay between end of game, and vote. if you want to di
 
 GM.NoPlayerSuicide = false
 GM.NoPlayerDamage = false
-GM.NoPlayerSelfDamage = false		// Allow players to hurt themselves?
+GM.NoPlayerSelfDamage = true		// Allow players to hurt themselves?
 GM.NoPlayerTeamDamage = true		// Allow team-members to hurt each other?
-GM.NoPlayerPlayerDamage = false 	// Allow players to hurt each other?
-GM.NoNonPlayerPlayerDamage = false 	// Allow damage from non players (physics, fire etc)
-GM.NoPlayerFootsteps = false		// When true, all players have silent footsteps
+GM.NoPlayerPlayerDamage = true 	// Allow players to hurt each other?
+GM.NoNonPlayerPlayerDamage = true 	// Allow damage from non players (physics, fire etc)
+GM.NoPlayerFootsteps = true		// When true, all players have silent footsteps
 GM.PlayerCanNoClip = false			// When true, players can use noclip without sv_cheats
 GM.TakeFragOnSuicide = false		// -1 frag on suicide
 
@@ -29,12 +29,12 @@ GM.MaximumDeathLength = 10			// Player will repspawn if death length > this (can
 GM.MinimumDeathLength = 5			// Player has to be dead for at least this long
 GM.AutomaticTeamBalance = false     // Teams will be periodically balanced 
 GM.ForceJoinBalancedTeams = false	// Players won't be allowed to join a team if it has more players than another team
-GM.RealisticFallDamage = true
+GM.RealisticFallDamage = false
 GM.AddFragsToTeamScore = false		// Adds player's individual kills to team score (must be team based)
 
 GM.NoAutomaticSpawning = true		// Players don't spawn automatically when they die, some other system spawns them
 GM.RoundBased = true				// Round based, like CS
-GM.RoundLength = 180			// Round length, in seconds
+GM.RoundLength = 300			// Round length, in seconds
 GM.RoundPreStartTime = 1			// Preperation time before a round starts
 GM.RoundPostLength = 10				// Seconds to show the 'x team won!' screen at the end of a round
 GM.RoundEndsWhenOneTeamAlive = false
@@ -46,13 +46,10 @@ TEAM_PLAYER = 1
 
 GM.ValidSpectatorModes = { OBS_MODE_IN_EYE }
 
-/*---------------------------------------------------------
-   Name: gamemode:CreateTeams()
-   Desc: Note - HAS to be shared.
----------------------------------------------------------*/
+
 function GM:CreateTeams()
 	
-	team.SetUp( TEAM_PLAYER, "Victims", Color( 80, 80, 255 ), true )
+	team.SetUp( TEAM_PLAYER, "Victims", Color(255,192,203), true )
 	team.SetSpawnPoint( TEAM_PLAYER, {"info_player_counterterrorist","info_player_rebel","info_player_start"} )
 	team.SetClass( TEAM_PLAYER, { "Victims" } )
 	
