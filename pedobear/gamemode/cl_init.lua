@@ -34,10 +34,3 @@ function GM:CreateScoreboard( ScoreBoard )
 	ScoreBoard:SetSortColumns( { 5, true, 4, false, 3, false } )
 
 end
-
-function GM:AddScoreboardMoney( ScoreBoard )
-
-	local f = function( ply ) return ply:GetNWInt("mhsmoney") end
-	ScoreBoard:AddColumn( "Money", 100, f, 0.5, nil, 6, 6 )
-
-end
