@@ -1,4 +1,4 @@
-EscapePedoBear
+Escape Pedobear
 ==============
 
 The official gamemode for Garry's Mod 13 by Mr Ibizza(Jordie) , Ysarts , Doug and another guy I forgot his name.
