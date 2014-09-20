@@ -39,7 +39,7 @@ function GM:Think()
 end
 
 function GM:GetRndSpawn()
-        cps = ents.FindByClass("pb_spawn") or ents.FindByClass("pedo_spawn") or ents.FindByClass("pedobear") or ents.FindByClass("bear")
+        cps = ents.FindByClass("pb_spawn") or ents.FindByClass("pedo_spawn") or ents.FindByClass("bear")
         return table.Random(cps)
 end
 
